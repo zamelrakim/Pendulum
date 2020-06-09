@@ -108,3 +108,13 @@ src
       |__ jobs.js
 
 ```
+
+### Server (Back End)
+
+#### ERD Model
+
+[Pendulum ERD](https://i.imgur.com/MbJdkeO.png)
+
+<br>
+
+***

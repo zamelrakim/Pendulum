@@ -140,6 +140,8 @@ src
 
 #### ERD Model
 
+> ERD Model shows a Polymorphic Association
+
 [Pendulum ERD](https://i.imgur.com/MbJdkeO.png)
 
 <br>

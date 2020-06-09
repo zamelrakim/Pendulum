@@ -109,6 +109,19 @@ src
 
 ```
 
+#### Component Breakdown
+
+|  Component   |    Type    | state | props | Description                                                      |
+| :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
+|    Header    | functional |   n   |   y   | _Navigation links to profile. Also links to sign-in / sign-out._               |
+|  App  | class |   y   |   n   | _Holds state for user_       |
+|   Register    |   class    |   y   |   n   | _Registers user._      |
+| Login | class |   y   |   n   | _Logs user into site._                 |
+|    Profile    | function |   y   |   n   | _Shows User profile with their tools._ |
+|    Jobs    | class |   y   |   n   | _Shows list of jobs and their tools._ |
+|    Job    | function |   y   |   y   | _Shows job profile._ |
+|    Home    | function |   n   |   n   | _Landing Page._ |
+
 ### Server (Back End)
 
 #### ERD Model

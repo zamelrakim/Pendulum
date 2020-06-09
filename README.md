@@ -43,4 +43,28 @@ _The MVP for **Pendulum** will focus on a Jobs section. Users will be able to vi
 
 [Pendulum Component Tree](https://i.imgur.com/PQ7obo9.png)
 
-<br>
+#### Component Hierarchy
+
+> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
+
+``` structure
+
+src
+|__ assets/
+      |__ images
+|__ components/
+      |__ Header.jsx
+      |__ Home.jsx
+      |__ Register.jsx
+      |__ Login.jsx
+      |__ Profile.jsx
+      |__ Jobs.jsx
+      |__ Job.jsx
+|__ app.jsx
+|__ services/
+      |__ api-helper.js
+      |__ auth.js
+      |__ users.js
+      |__ jobs.js
+
+```

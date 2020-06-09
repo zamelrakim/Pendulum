@@ -118,3 +118,13 @@ src
 <br>
 
 ***
+
+## Post-MVP
+
+- Simulations:
+  Simulate the efficiency of the stack. Taking into account the database etc.
+
+- CLI Tool
+  Create a custom build for the full-stack. Ability to init stack on locally.
+
+***

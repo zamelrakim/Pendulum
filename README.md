@@ -11,3 +11,13 @@ _**Pendulum** is a prototyping tool for software development. Named after Newton
 > The Minimum Viable Product for Pendulum consist of features to be completed during the first week of project development.
 
 _The MVP for **Pendulum** will focus on a Jobs section. Users will be able to view the full stack for notable companies. This will allow the user to learn from stacks that have be proven to work and to familiarize themselves with a stack and its tools in the case they're looking to apply for a certain job. It will include 3 models: Users, Tools, & Jobs. Tools are the technologies used in development. Users will be able to add tools to their profile that shows their knowledge and experience. Jobs will have the tools that make up their full stack._
+
+<br>
+
+### Goals
+
+- _Create Ruby on Rails API for Back-End_
+- _Create User, Tool, and Job models_
+- _User Authentication_
+- _Create React app for Front-End_
+- _Responsive Web Design_

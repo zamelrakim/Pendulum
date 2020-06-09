@@ -19,6 +19,7 @@ _The MVP for **Pendulum** will focus on a Jobs section. Users will be able to vi
 - _Create Ruby on Rails API for Back-End_
 - _Create User, Tool, and Job models_
 - _User Authentication_
+- _Full-CRUD Implementation_
 - _Create React app for Front-End_
 - _Responsive Web Design_
 

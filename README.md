@@ -38,3 +38,9 @@ _The MVP for **Pendulum** will focus on a Jobs section. Users will be able to vi
 |  JSON Web Token  | _User Authentication (Back-End)_                    |
 
 <br>
+
+#### Component Tree
+
+[Pendulum Component Tree](https://i.imgur.com/PQ7obo9.png)
+
+<br>

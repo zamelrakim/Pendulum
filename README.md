@@ -21,3 +21,19 @@ _The MVP for **Pendulum** will focus on a Jobs section. Users will be able to vi
 - _User Authentication_
 - _Create React app for Front-End_
 - _Responsive Web Design_
+
+<br>
+
+### Libraries
+
+> Use this section to list all supporting libraries and dependencies, and their role in the project.
+
+|     Library      | Description                                         |
+| :--------------: | :-------------------------------------------------- |
+|  Ruby on Rails   | _Configuration for database/models (Back-End)_      |
+|      React       | _Configures Components for client-side (Front-End)_ |
+|   React Router   | _Client-Side Routing. Sitemap (Front-End)_          |
+|      Axios       | _HTTP API Calls from client-side (Front-End)_       |
+|  JSON Web Token  | _User Authentication (Back-End)_                    |
+
+<br>

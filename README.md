@@ -122,6 +122,24 @@ src
 |    Job    | function |   y   |   y   | _Shows job profile._ |
 |    Home    | function |   n   |   n   | _Landing Page._ |
 
+#### Component Estimates
+
+| Task                | Priority | Estimated Time | Time Invested | Actual Time |
+| ------------------- | :------: | :------------: | :-----------: | :---------: |
+| Models for Users, Tools, and Jobs    |    H     |     4 hrs      |           |        |
+| Model Associations |    H     |     5 hrs      |          |          |
+| Create CRUD Actions / Controllers |    H     |     6 hrs      |          |          |
+| User Authentication |    H     |     6 hrs      |          |          |
+| Login & Register Components |    H     |     5 hrs      |          |          |
+| Header Component |    H     |     2 hrs      |          |          |
+| Jobs Component |    H     |     2 hrs      |          |          |
+| Profile Component |    H     |     2 hrs      |          |          |
+| Job Component |    H     |     6 hrs      |          |          |
+| CSS Styling |    H     |     7 hrs      |          |          |
+| TOTAL               |          |     45 hrs      |          |          |
+
+<br>
+
 ### Server (Back End)
 
 #### ERD Model

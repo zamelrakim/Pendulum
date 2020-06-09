@@ -27,8 +27,6 @@ _The MVP for **Pendulum** will focus on a Jobs section. Users will be able to vi
 
 ### Libraries
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project.
-
 |     Library      | Description                                         |
 | :--------------: | :-------------------------------------------------- |
 |  Ruby on Rails   | _Configuration for database/models (Back-End)_      |

@@ -39,6 +39,46 @@ _The MVP for **Pendulum** will focus on a Jobs section. Users will be able to vi
 
 <br>
 
+### Client (Front End)
+
+#### Wireframes
+
+[Desktop Home](https://i.imgur.com/1bTdFeW.png)
+
+- Desktop Landing
+
+[User Profile](https://i.imgur.com/vNWYPsM.png)
+
+- User Profile
+
+[Jobs Index](https://i.imgur.com/BWXWa3J.png)
+
+- Jobs Index
+
+[Job Profile](https://i.imgur.com/Uxem6rg.png)
+
+- Job Profile
+
+[Register](https://i.imgur.com/YMWXj33.png)
+
+- Register
+
+[Login](https://i.imgur.com/8Y2ZtKq.png)
+
+- Login
+
+[Mobile Home](https://i.imgur.com/E6U9Hdv.png)
+
+- Mobile Home
+
+[Mobile User Profile](https://i.imgur.com/hSq5rOS.png)
+
+- Mobile User Profile
+
+[Tablet Job Profile](https://i.imgur.com/70FFd3H.png)
+
+- Tablet Job Profile
+
 #### Component Tree
 
 [Pendulum Component Tree](https://i.imgur.com/PQ7obo9.png)

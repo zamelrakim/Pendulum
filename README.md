@@ -65,6 +65,14 @@ _The MVP for **Pendulum** will focus on a Jobs section. Users will be able to vi
 
 - Login
 
+[Create Job](https://i.imgur.com/5lFxNKX.png)
+
+- Create Job
+
+[Edit Job](https://i.imgur.com/7NujG8I.png)
+
+- Edit Job
+
 [Mobile Home](https://i.imgur.com/E6U9Hdv.png)
 
 - Mobile Home
@@ -140,9 +148,9 @@ src
 
 #### ERD Model
 
-> ERD Model shows a Polymorphic Association
+> ERD Model shows a Polymorphic Association / Join Tables
 
-[Pendulum ERD](https://i.imgur.com/MbJdkeO.png)
+[Pendulum ERD](https://i.imgur.com/6LbUm7g.png)
 
 <br>
 

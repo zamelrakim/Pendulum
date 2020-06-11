@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  belongs_to :job, polymorphic: true, optional: true
+  belongs_to :job, optional: true
 end

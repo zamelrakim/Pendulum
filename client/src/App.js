@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from './Components/Header'
 import './App.css';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
 

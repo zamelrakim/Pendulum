@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
-  before_action :authorize_req, only: [:create, :update]
-  before_action :set_job, only: [:show, :update]
+  before_action :authorize_req, only: [:create, :update, :employ]
+  before_action :set_job, only: [:show, :update, :employ]
 
   def index
     @jobs = Job.all
@@ -8,7 +8,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    render json: @job
+    render json: @job, include: :tools
   end
 
   def create
@@ -23,11 +23,20 @@ class JobsController < ApplicationController
   end
 
   def update
-    if @curr_job.job == @job && @job.update(job_params)
+    # if @curr_job.job == @job && @job.update(job_params)
+    if @curr_user.job == @job
+      # UPDATE TOOL PARAMS FOR TOOL ID
+      @tool = Tool.find(params[:tool_id])
+      @job.tools << @tool
       render json: @job
     else
       render json: @job.errors, status: :unprocessable_entity
     end
+  end
+
+  def employ
+    @curr_user.job = @job
+    @curr_user.save
   end
 
   private
@@ -37,6 +46,6 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:company)
+    params.require(:job).permit(:company, :tool_id)
   end
 end

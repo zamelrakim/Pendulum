@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create, :update]
   resources :tools, only: [:index, :show, :create, :destroy]
   resources :jobs, only: [:index, :show, :create, :update]
+  get '/jobs/:id/employ', to: 'jobs#employ'
 end

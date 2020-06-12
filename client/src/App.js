@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Components/Header'
 import './App.css';
-import { loginUser, registerUser, removeToken, verifyUser } from './services/auth'
+import { loginUser, registerUser, removeToken, verifyUser } from './services/auth.js'
 
 export default class App extends Component {
   state = {
@@ -42,4 +42,3 @@ export default class App extends Component {
   }
 }
 
-export default App;

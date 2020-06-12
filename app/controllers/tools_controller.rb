@@ -1,5 +1,5 @@
 class ToolsController < ApplicationController
-  before_action :authorize_request, only: [:create, :destroy]
+  before_action :authorize_req, only: [:create, :destroy]
   before_action :set_tool, only: [:show, :destroy]
 
   def index
@@ -17,6 +17,7 @@ class ToolsController < ApplicationController
 
     if @tool.save
       @curr_user.tools << @tool
+      @curr_user.save
       render json: @tool, status: :created
     else
       render json: @food.errors, status: :unprocessable_entity

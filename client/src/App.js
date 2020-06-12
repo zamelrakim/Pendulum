@@ -11,9 +11,25 @@ export default class App extends Component {
     this.verifyUser()
   }
 
+  loginUser = async (loginData) => {
+    const currUser = await loginUser(loginData);
+    this.setState({ currUser });
+  }
+
+  registerUser = async (registerData) => {
+    const currUser = await registerUser(registerData)
+    this.setState({ currUser })
+  }
+
   verifyUser = async () => {
     const currUser = await verifyUser()
     this.setState({ currUser })
+  }
+
+  logoutUser = async () => {
+    this.setState({ currUser: null })
+    localStorage.clear()
+    removeToken()
   }
 
   render() {

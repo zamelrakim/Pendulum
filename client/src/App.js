@@ -6,6 +6,7 @@ import { getJob } from './services/jobs'
 import Jobs from './Components/Jobs'
 import Job from './Components/Job'
 import Tools from './Components/Tools'
+import Tool from './Components/Tool'
 import Login from './Components/LoginRegister/Login'
 import Register from './Components/LoginRegister/Register'
 import './App.css';
@@ -52,6 +53,10 @@ export default class App extends Component {
       <div>
         <Header currUser={this.state.currUser} logout={this.logoutUser} />
         <Switch>
+          <Route path='/tools/:id' render={(props) => {
+            const toolId = props.match.params.id
+            return <Tool toolId={toolId} />
+          }} />
           <Route path='/tools' render={() => <Tools />} />
           <Route path='/jobs/:id' render={(props) => {
             const jobId = props.match.params.id

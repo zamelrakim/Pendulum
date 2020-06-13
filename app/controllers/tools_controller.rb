@@ -8,7 +8,7 @@ class ToolsController < ApplicationController
   end
 
   def show
-    render json: @tool
+    render json: @tool, include: :creator
   end
 
   def create

@@ -21,16 +21,19 @@ export default class Jobs extends Component {
     return (
       <div>
         <h2>JOBS</h2>
-        {
-          jobs.map(job => (
-            <Link
-              to={`/jobs/${job.id}`}
-              key={`job-${job.id}`}
-            >
-              <p>{job.company}</p>
-            </Link>
-          ))
-        }
+        <div>
+          {
+            jobs.map(job => (
+              <Link
+                to={`/jobs/${job.id}`}
+                key={`job-${job.id}`}
+              >
+                <p>{job.company}</p>
+             </Link>
+            ))
+          
+          }
+        </div>
       </div>
     )
   }

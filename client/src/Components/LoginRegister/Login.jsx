@@ -14,11 +14,19 @@ export default class Login extends Component {
 
   render() {
     const { email, password } = this.state
-    const { login } = this.props
+    const { login, history } = this.props
     return (
       <>
         <h2>LOGIN</h2>
-        <form onSubmit={() => login(this.state)}>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          login(this.state)
+          // history.push('/')
+          this.setState({
+            email: "",
+            password: ""
+          })
+        }}>
           <label >Email<input type="text" name="email" value={email} onChange={this.loginChange} /></label>
           <label >Password<input type="password" name="password" value={password} onChange={this.loginChange} /></label>
           <button>LOGIN</button>

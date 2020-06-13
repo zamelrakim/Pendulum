@@ -32,7 +32,7 @@ export default class Job extends Component {
             </div>
             <h3>Engineers</h3>
             <div className="job-engineers">
-              {job.engineers.map(engineer => <p>{engineer.username}</p>)}
+              {job.engineers.map(engineer => <p key={`engineer-${engineer.id}`}>{engineer.username}</p>)}
             </div>
           </>
         )}

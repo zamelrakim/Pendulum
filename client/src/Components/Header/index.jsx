@@ -16,7 +16,7 @@ export default function Header({ currUser }) {
         {currUser
           ? 
           <>
-            <Link to={`/users/${currUser.id}`}>{currUser}</Link> |
+            <Link to={`/users/${currUser.id}`}>{currUser.username}</Link> |
             {/* ADD LOGOUT */}
           </>
           :

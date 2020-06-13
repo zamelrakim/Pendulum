@@ -56,8 +56,8 @@ export default class App extends Component {
             return <Job jobId={jobId} />
           }} />
           <Route exact path='/jobs' render={() => <Jobs />} />
-          <Route path='/login' render={() => <Login login={this.loginUser} />}/>
-          <Route path='/register' render={() => <Register signup={this.registerUser} />}/>
+          <Route path='/login' render={(props) => <Login {...props} login={this.loginUser} />}/>
+          <Route path='/register' render={(props) => <Register {...props} signUp={this.registerUser} />}/>
         </Switch>
       </div>
     );

@@ -5,6 +5,8 @@ import { loginUser, registerUser, removeToken, verifyUser } from './services/aut
 import { getJob } from './services/jobs'
 import Jobs from './Components/Jobs'
 import Job from './Components/Job'
+import Login from './Components/LoginRegister/Login'
+import Register from './Components/LoginRegister/Register'
 import './App.css';
 
 export default class App extends Component {
@@ -54,6 +56,8 @@ export default class App extends Component {
             return <Job jobId={jobId} />
           }} />
           <Route exact path='/jobs' render={() => <Jobs />} />
+          <Route path='/login' render={() => <Login login={this.loginUser} />}/>
+          <Route path='/register' render={() => <Register login={this.registerUser} />}/>
         </Switch>
       </div>
     );

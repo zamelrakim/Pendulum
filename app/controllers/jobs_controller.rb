@@ -8,7 +8,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    render json: @job, include: :tools
+    render json: @job, include: [:tools, :engineers]
   end
 
   def create

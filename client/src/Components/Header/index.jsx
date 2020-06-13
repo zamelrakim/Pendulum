@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
-export default function Header({ currUser }) {
+export default function Header({ currUser, logout }) {
   return (
     <header>
       <div className='site-nav'>
@@ -16,8 +16,8 @@ export default function Header({ currUser }) {
         {currUser
           ? 
           <>
-            <Link to={`/users/${currUser.id}`}>{currUser}</Link> |
-            {/* ADD LOGOUT */}
+            <Link to={`/users/${currUser.id}`}>{currUser.username}</Link> |
+            <Link to={location => location} onClick={() => logout()}>Logout</Link>
           </>
           :
           <Link to='/login'>Login/Register</Link>

@@ -25,7 +25,6 @@ export default class Jobs extends Component {
           jobs.map(job => (
             <Link
               to={`/jobs/${job.id}`}
-              onClick={() => { this.props.setJob(job.id) }}
               key={`job-${job.id}`}
             >
               <p>{job.company}</p>

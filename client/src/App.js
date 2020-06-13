@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth.js'
 import { getJob } from './services/jobs'
 import Jobs from './Components/Jobs'
+import Job from './Components/Job'
 import './App.css';
 
 export default class App extends Component {
@@ -48,7 +49,11 @@ export default class App extends Component {
       <div>
         <Header currUser={this.state.currUser} />
         <Switch>
-          <Route path='/jobs' render={() => <Jobs setJob={this.setJob} />} />
+          <Route path='/jobs/:id' render={(props) => {
+            const jobId = props.match.params.id
+            return <Job jobId={jobId} />
+          }} />
+          <Route exact path='/jobs' render={() => <Jobs />} />
         </Switch>
       </div>
     );

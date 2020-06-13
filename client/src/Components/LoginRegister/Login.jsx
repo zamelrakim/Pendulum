@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Login extends Component {
   state = {
@@ -6,11 +7,24 @@ export default class Login extends Component {
     password: ""
   }
 
+  loginChange = (e) => {
+    const { name, value } = e.target
+    this.setState({ [name]: value })
+  }
+
   render() {
+    const { email, password } = this.state
+    const { login } = this.props
     return (
-      <div>
-        
-      </div>
+      <>
+        <h2>LOGIN</h2>
+        <form onSubmit={() => login(this.state)}>
+          <label >Email<input type="text" name="email" value={email} onChange={this.loginChange} /></label>
+          <label >Password<input type="password" name="password" value={password} onChange={this.loginChange} /></label>
+          <button>LOGIN</button>
+        </form>
+        <Link to='/register'>REGISTER</Link>
+      </>
     )
   }
 }

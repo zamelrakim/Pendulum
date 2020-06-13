@@ -17,7 +17,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    // this.verifyUser()
+    this.verifyUser()
   }
 
   loginUser = async (loginData) => {
@@ -57,7 +57,7 @@ export default class App extends Component {
           }} />
           <Route exact path='/jobs' render={() => <Jobs />} />
           <Route path='/login' render={() => <Login login={this.loginUser} />}/>
-          <Route path='/register' render={() => <Register login={this.registerUser} />}/>
+          <Route path='/register' render={() => <Register signup={this.registerUser} />}/>
         </Switch>
       </div>
     );

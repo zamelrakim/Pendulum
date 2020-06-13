@@ -21,7 +21,7 @@ export default class Login extends Component {
         <form onSubmit={(e) => {
           e.preventDefault();
           login(this.state)
-          // history.push('/')
+          history.push('/')
           this.setState({
             email: "",
             password: ""

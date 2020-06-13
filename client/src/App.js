@@ -49,7 +49,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Header currUser={this.state.currUser} />
+        <Header currUser={this.state.currUser} logout={this.logoutUser} />
         <Switch>
           <Route path='/jobs/:id' render={(props) => {
             const jobId = props.match.params.id

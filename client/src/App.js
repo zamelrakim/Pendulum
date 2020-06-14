@@ -60,7 +60,7 @@ export default class App extends Component {
           }} />
           <Route path='/tools/:id' render={(props) => {
             const toolId = props.match.params.id
-            return <Tool toolId={toolId} />
+            return <Tool {...props} toolId={toolId} />
           }} />
           <Route path='/tools' render={() => <Tools />} />
           <Route path='/jobs/:id' render={(props) => {

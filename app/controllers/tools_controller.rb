@@ -20,13 +20,19 @@ class ToolsController < ApplicationController
       @curr_user.save
       render json: @tool, status: :created
     else
-      render json: @food.errors, status: :unprocessable_entity
+      render json: @tool.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
     if @tool.creator == @curr_user
-      @tool.destroy
+      tool_users = @tool.users.select { |user| user.id != @curr_user.id }
+      if tool_users.empty? && @tool.jobs.empty?
+        @tool.destroy
+        render json: {destroyed: true}, status: :accepted
+      else
+        render json: {destroyed: false}, status: :ok
+      end
     end
   end
 

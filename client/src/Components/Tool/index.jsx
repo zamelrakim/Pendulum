@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { getTool } from '../../services/tools'
+import { getTool, deleteTool } from '../../services/tools'
 import { Link } from 'react-router-dom'
 
 export default class Tool extends Component {
   state = {
-    tool: null
+    tool: null,
+    destroyed: null
   }
 
   componentDidMount() {
@@ -16,8 +17,19 @@ export default class Tool extends Component {
     this.setState({ tool })
   }
 
+  deleteTool = async () => {
+    const destroyed = await deleteTool(this.props.toolId)
+    console.log(destroyed);
+    
+    destroyed ? this.props.history.push('/tools') : this.setState({ destroyed });
+  }
+
+  closeError = () => {
+    this.setState({ destroyed: null })
+  }
+
   render() {
-    const { tool } = this.state
+    const { tool, destroyed } = this.state
     return (
       <div>
         {tool && (
@@ -29,6 +41,13 @@ export default class Tool extends Component {
                 {tool.creator.username}
               </Link>
             </h3>
+            <button onClick={() => this.deleteTool()}>Delete Tool</button>
+            {destroyed === false && (
+              <div>
+                <p>Tool Is Being Used And Can Not Be Deleted</p>
+                <button onClick={() => this.closeError()}>x</button>
+              </div>
+            )}
           </>
         )}
       </div>

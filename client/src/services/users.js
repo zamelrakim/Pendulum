@@ -1,6 +1,6 @@
 import api from './pendulum-api'
 
-export const getProfile = async (id) => {
+export const getUser = async (id) => {
   const resp = await api.get(`/users/${id}`);
   return resp.data;
 }

@@ -3,6 +3,7 @@ import Header from './Components/Header'
 import { Switch, Route } from 'react-router-dom'
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth.js'
 import { getJob } from './services/jobs'
+import Profile from './Components/Profile'
 import Jobs from './Components/Jobs'
 import Job from './Components/Job'
 import Tools from './Components/Tools'
@@ -53,6 +54,10 @@ export default class App extends Component {
       <div>
         <Header currUser={this.state.currUser} logout={this.logoutUser} />
         <Switch>
+          <Route path='/users/:id' render={(props) => {
+            const userId = props.match.params.id
+            return <Profile userId={userId} currUser={this.state.currUser} />
+          }} />
           <Route path='/tools/:id' render={(props) => {
             const toolId = props.match.params.id
             return <Tool toolId={toolId} />

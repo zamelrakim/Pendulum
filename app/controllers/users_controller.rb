@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show]
 
   def show
-    render json: @user, include: :tools
+    render json: @user, include: [:tools, :job]
   end
 
   def create

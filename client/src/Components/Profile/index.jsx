@@ -20,7 +20,7 @@ export default class Profile extends Component {
   render() {
     const { user } = this.state
     const { currUser } = this.props
-    const isCurrUser = (currUser && user.id === currUser.id) ? true : false
+    const isCurrUser = (user && (currUser && user.id === currUser.id)) ? true : false
     return (
       <div>
         {user && (

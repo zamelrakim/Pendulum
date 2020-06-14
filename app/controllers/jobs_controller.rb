@@ -28,7 +28,7 @@ class JobsController < ApplicationController
       # UPDATE TOOL PARAMS FOR TOOL ID
       @tool = Tool.find(params[:tool_id])
       @job.tools << @tool
-      render json: @job
+      render json: @job, include: :tools
     else
       render json: @job.errors, status: :unprocessable_entity
     end

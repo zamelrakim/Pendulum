@@ -65,7 +65,7 @@ export default class App extends Component {
           <Route path='/tools' render={() => <Tools />} />
           <Route path='/jobs/:id' render={(props) => {
             const jobId = props.match.params.id
-            return <Job jobId={jobId} />
+            return <Job {...props} jobId={jobId} />
           }} />
           <Route exact path='/jobs' render={() => <Jobs />} />
           <Route path='/login' render={(props) => <Login {...props} login={this.loginUser} />}/>

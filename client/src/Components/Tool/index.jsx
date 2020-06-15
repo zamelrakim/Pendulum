@@ -30,6 +30,7 @@ export default class Tool extends Component {
 
   render() {
     const { tool, destroyed } = this.state
+    const { currUser } = this.props
     return (
       <div>
         {tool && (
@@ -41,12 +42,16 @@ export default class Tool extends Component {
                 {tool.creator.username}
               </Link>
             </h3>
-            <button onClick={() => this.deleteTool()}>Delete Tool</button>
-            {destroyed === false && (
-              <div>
-                <p>Tool Is Being Used And Can Not Be Deleted</p>
-                <button onClick={() => this.closeError()}>x</button>
-              </div>
+            {(currUser && tool.creator.id == currUser.id) && (
+              <>
+                <button onClick={() => this.deleteTool()}>Delete Tool</button>
+                {destroyed === false && (
+                  <div>
+                    <p>Tool Is Being Used And Can Not Be Deleted</p>
+                    <button onClick={() => this.closeError()}>x</button>
+                  </div>
+                )}
+              </>
             )}
           </>
         )}

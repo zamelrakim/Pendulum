@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getJob, updateJob } from '../../services/jobs'
 import UpdateJob from '../UpdateJob'
 import { Route } from 'react-router-dom'
@@ -46,6 +46,7 @@ export default class Job extends Component {
 
   render() {
     const { job } = this.state
+    const { currUser } = this.props
     return (
       <div>
         {job && (
@@ -65,20 +66,22 @@ export default class Job extends Component {
               <>
                 <h2>{job.company}</h2>
                 <h3>Stack</h3>
-                <button onClick={() => this.editJob()}>Edit</button>
+                {(currUser && currUser.job_id === job.id) &&
+                  <button onClick={() => this.editJob()}>Edit</button>
+                }
                 <div className="job-stack">
                   {job.tools.map(tool => (
                     <React.Fragment key={`tool-${tool.id}`}>
-                      <p>{tool.name}</p>
+                     <Link to={`/tools/${tool.id}`}>{tool.name}</Link>
                     </React.Fragment>
                   ))}
                 </div>
                 <h3>Engineers</h3>
                 <div className="job-engineers">
                   {job.engineers.map(engineer => (
-                    <p key={`engineer-${engineer.id}`}>
-                      {engineer.username}
-                    </p>
+                    <React.Fragment key={`engineer-${engineer.id}`}>
+                      <Link to={`/users/${engineer.id}`}>{engineer.username}</Link>
+                    </React.Fragment>
                   ))}
                 </div>
               </>

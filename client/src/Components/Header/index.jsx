@@ -8,7 +8,7 @@ export default function Header({ currUser, logout }) {
         <h1 className="site-title">PENDULUM</h1>
         <nav>
           <NavLink to='/tools'>Tools</NavLink>
-          <NavLink to='/jobs'>jobs</NavLink>
+          <NavLink to='/jobs'>Jobs</NavLink>
         </nav>
       </div>
 

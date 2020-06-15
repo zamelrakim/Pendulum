@@ -62,12 +62,12 @@ export default class App extends Component {
           <Route exact path='/tools/new' render={(props) => <CreateTool {...props} />} />
           <Route path='/tools/:id' render={(props) => {
             const toolId = props.match.params.id
-            return <Tool {...props} toolId={toolId} />
+            return <Tool {...props} toolId={toolId} currUser={this.state.currUser} />
           }} />
           <Route path='/tools' render={() => <Tools />} />
           <Route path='/jobs/:id' render={(props) => {
             const jobId = props.match.params.id
-            return <Job {...props} jobId={jobId} />
+            return <Job {...props} jobId={jobId} currUser={this.state.currUser} />
           }} />
           <Route exact path='/jobs' render={() => <Jobs />} />
           <Route path='/login' render={(props) => <Login {...props} login={this.loginUser} />}/>

@@ -12,7 +12,7 @@ import Tool from './Components/Tool'
 import CreateTool from './Components/CreateTool'
 import Login from './Components/LoginRegister/Login'
 import Register from './Components/LoginRegister/Register'
-import './App.css';
+import './App.scss';
 
 export default class App extends Component {
   state = {
@@ -53,7 +53,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Header currUser={this.state.currUser} logout={this.logoutUser} />
         <Switch>
           <Route path='/users/:id' render={(props) => {
@@ -71,11 +71,11 @@ export default class App extends Component {
             const jobId = props.match.params.id
             return <Job {...props} jobId={jobId} currUser={this.state.currUser} />
           }} />
-          <Route exact path='/jobs' render={() => <Jobs />} />
+          <Route exact path='/jobs' render={(props) => <Jobs {...props} />} />
           <Route path='/login' render={(props) => <Login {...props} login={this.loginUser} />}/>
           <Route path='/register' render={(props) => <Register {...props} signUp={this.registerUser} />}/>
         </Switch>
-      </div>
+      </>
     );
   }
 }

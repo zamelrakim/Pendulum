@@ -18,10 +18,11 @@ export default class Jobs extends Component {
 
   render() {
     const { jobs } = this.state
+    const { history } = this.props
     return (
       <div>
         <h2>JOBS</h2>
-        <Link to={`/jobs/new`}>New Job</Link>
+        <button onClick={() => history.push('/jobs/new')}>New Job</button>
         <div>
           {
             jobs.map(job => (

@@ -8,6 +8,7 @@ import Jobs from './Components/Jobs'
 import Job from './Components/Job'
 import Tools from './Components/Tools'
 import Tool from './Components/Tool'
+import CreateTool from './Components/CreateTool'
 import Login from './Components/LoginRegister/Login'
 import Register from './Components/LoginRegister/Register'
 import './App.css';
@@ -58,6 +59,7 @@ export default class App extends Component {
             const userId = props.match.params.id
             return <Profile userId={userId} currUser={this.state.currUser} />
           }} />
+          <Route exact path='/tools/new' render={(props) => <CreateTool {...props} />} />
           <Route path='/tools/:id' render={(props) => {
             const toolId = props.match.params.id
             return <Tool {...props} toolId={toolId} />

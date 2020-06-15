@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { getUser } from '../../services/users'
+import { Link } from 'react-router-dom'
 
 export default class Profile extends Component {
   state = {
@@ -12,8 +13,6 @@ export default class Profile extends Component {
 
   setUser = async () => {
     const user = await getUser(this.props.userId)
-    console.log(user);
-    
     this.setState({ user })
   }
 
@@ -27,15 +26,20 @@ export default class Profile extends Component {
           <>
             <div className='profile-info'>
               <h2>{user.username}</h2>
-              {user.job && <h3>{user.job.company}</h3>}
+              {user.job && (
+                <h3>
+                  Works @ <Link to={`/jobs/${user.job_id}`}>{user.job.company}</Link>
+                </h3>
+              )}
             </div>
             <div className="profile-tools">
               {user.tools.length !== 0
                 ? 
                 <>
+                  <h3>Tools</h3>
                   {user.tools.map(tool => (
                     <div className="profile-tool" key={`tool-${tool.id}`}>
-                      <h3>{tool.name}</h3>
+                    <Link to={`/tools/${tool.id}`}>{tool.name}</Link>
                     </div>
                   ))}
                 </>

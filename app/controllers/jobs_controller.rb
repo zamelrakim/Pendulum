@@ -28,7 +28,7 @@ class JobsController < ApplicationController
       arrTools = tools.map { |tool| tool[:id] }
       @job.tool_ids=(arrTools)
       @job.save
-      render json: arrTools
+      render json: @job
     else
       render json: @job.errors, status: :unprocessable_entity
     end

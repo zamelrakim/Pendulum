@@ -6,6 +6,7 @@ import { getJob } from './services/jobs'
 import Profile from './Components/Profile'
 import Jobs from './Components/Jobs'
 import Job from './Components/Job'
+import CreateJob from './Components/CreateJob'
 import Tools from './Components/Tools'
 import Tool from './Components/Tool'
 import CreateTool from './Components/CreateTool'
@@ -65,6 +66,7 @@ export default class App extends Component {
             return <Tool {...props} toolId={toolId} currUser={this.state.currUser} />
           }} />
           <Route path='/tools' render={() => <Tools />} />
+          <Route exact path='/jobs/new' render={(props) => <CreateJob {...props} />} />
           <Route path='/jobs/:id' render={(props) => {
             const jobId = props.match.params.id
             return <Job {...props} jobId={jobId} currUser={this.state.currUser} />

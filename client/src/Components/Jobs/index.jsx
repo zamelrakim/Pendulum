@@ -21,6 +21,7 @@ export default class Jobs extends Component {
     return (
       <div>
         <h2>JOBS</h2>
+        <Link to={`/jobs/new`}>New Job</Link>
         <div>
           {
             jobs.map(job => (

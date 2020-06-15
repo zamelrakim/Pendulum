@@ -21,6 +21,7 @@ export default class Tools extends Component {
     return (
       <div>
         <h2>Tools</h2>
+        <Link to='/tools/new'>Create Tool</Link>
         <div>
         {tools && 
             tools.map(tool => (

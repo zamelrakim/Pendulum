@@ -23,12 +23,12 @@ class JobsController < ApplicationController
   end
 
   def update
-    # if @curr_job.job == @job && @job.update(job_params)
     if @curr_user.job == @job
-      # UPDATE TOOL PARAMS FOR TOOL ID
-      @tool = Tool.find(params[:tool_id])
-      @job.tools << @tool
-      render json: @job
+      tools = job_params[:tools]
+      arrTools = tools.map { |tool| tool[:id] }
+      @job.tool_ids=(arrTools)
+      @job.save
+      render json: arrTools
     else
       render json: @job.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:company, :tool_id)
+    params.require(:job).permit(:id, :company, tools: [ :id ])
   end
 end

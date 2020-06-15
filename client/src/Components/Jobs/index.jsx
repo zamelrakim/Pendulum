@@ -20,23 +20,31 @@ export default class Jobs extends Component {
     const { jobs } = this.state
     const { history } = this.props
     return (
-      <div>
-        <h2>JOBS</h2>
-        <button onClick={() => history.push('/jobs/new')}>New Job</button>
-        <div>
+      <>
+        <div className="page-header">
+          <h2>JOBS</h2>
+          <button
+            className='btn-header'
+            onClick={() => history.push('/jobs/new')}
+          > NEW JOB
+          </button>
+        </div>
+        <hr />
+        <div className='list-links'>
           {
             jobs.map(job => (
               <Link
                 to={`/jobs/${job.id}`}
                 key={`job-${job.id}`}
+                className='list-item'
               >
                 <p>{job.company}</p>
-             </Link>
+              </Link>
             ))
-          
+
           }
         </div>
-      </div>
+      </>
     )
   }
 }

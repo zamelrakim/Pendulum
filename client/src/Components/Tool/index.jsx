@@ -35,24 +35,32 @@ export default class Tool extends Component {
       <div>
         {tool && (
           <>
-            <h2>{tool.name}</h2>
-            <h3>
-              Creator:
-              <Link to={`/users/${tool.creator.id}`}>
-                {tool.creator.username}
-              </Link>
-            </h3>
-            {(currUser && tool.creator.id == currUser.id) && (
-              <>
-                <button onClick={() => this.deleteTool()}>Delete Tool</button>
-                {destroyed === false && (
-                  <div>
-                    <p>Tool Is Being Used And Can Not Be Deleted</p>
-                    <button onClick={() => this.closeError()}>x</button>
-                  </div>
-                )}
-              </>
-            )}
+            <div className="page-header">
+              <h2 className=''>{tool.name}
+              <p>
+                by
+                <Link to={`/users/${tool.creator.id}`}>
+                  {tool.creator.username}
+                </Link>
+                </p>
+              </h2>
+              {(currUser && tool.creator.id === currUser.id) && (
+                <>
+                  <button
+                    className='btn-header'
+                    onClick={() => this.deleteTool()}
+                  >DELETE TOOL
+                  </button>
+                  {destroyed === false && (
+                    <div>
+                      <p>Tool Is Being Used And Can Not Be Deleted</p>
+                      <button onClick={() => this.closeError()}>x</button>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+            <hr />
           </>
         )}
       </div>

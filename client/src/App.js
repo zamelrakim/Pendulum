@@ -55,26 +55,28 @@ export default class App extends Component {
     return (
       <>
         <Header currUser={this.state.currUser} logout={this.logoutUser} />
-        <Switch>
-          <Route path='/users/:id' render={(props) => {
-            const userId = props.match.params.id
-            return <Profile userId={userId} currUser={this.state.currUser} />
-          }} />
-          <Route exact path='/tools/new' render={(props) => <CreateTool {...props} />} />
-          <Route path='/tools/:id' render={(props) => {
-            const toolId = props.match.params.id
-            return <Tool {...props} toolId={toolId} currUser={this.state.currUser} />
-          }} />
-          <Route path='/tools' render={() => <Tools />} />
-          <Route exact path='/jobs/new' render={(props) => <CreateJob {...props} />} />
-          <Route path='/jobs/:id' render={(props) => {
-            const jobId = props.match.params.id
-            return <Job {...props} jobId={jobId} currUser={this.state.currUser} />
-          }} />
-          <Route exact path='/jobs' render={(props) => <Jobs {...props} />} />
-          <Route path='/login' render={(props) => <Login {...props} login={this.loginUser} />}/>
-          <Route path='/register' render={(props) => <Register {...props} signUp={this.registerUser} />}/>
-        </Switch>
+        <div className='main'>
+          <Switch>
+            <Route path='/users/:id' render={(props) => {
+              const userId = props.match.params.id
+              return <Profile userId={userId} currUser={this.state.currUser} />
+            }} />
+            <Route exact path='/tools/new' render={(props) => <CreateTool {...props} />} />
+            <Route path='/tools/:id' render={(props) => {
+              const toolId = props.match.params.id
+              return <Tool {...props} toolId={toolId} currUser={this.state.currUser} />
+            }} />
+            <Route path='/tools' render={(props) => <Tools {...props} />} />
+            <Route exact path='/jobs/new' render={(props) => <CreateJob {...props} />} />
+            <Route path='/jobs/:id' render={(props) => {
+              const jobId = props.match.params.id
+              return <Job {...props} jobId={jobId} currUser={this.state.currUser} />
+            }} />
+            <Route exact path='/jobs' render={(props) => <Jobs {...props} />} />
+            <Route path='/login' render={(props) => <Login {...props} login={this.loginUser} />}/>
+            <Route path='/register' render={(props) => <Register {...props} signUp={this.registerUser} />}/>
+          </Switch>
+        </div>
       </>
     );
   }

@@ -18,7 +18,7 @@ export default class CreateJob extends Component {
   
   render() {
     return (
-      <div>
+      <>
         <h2>CREATE JOB</h2>
         <form onSubmit={(e) => {
             e.preventDefault();
@@ -36,7 +36,7 @@ export default class CreateJob extends Component {
           </label>
           <button>CREATE</button>
         </form>
-      </div>
+      </>
     )
   }
 }

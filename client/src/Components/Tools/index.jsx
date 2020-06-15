@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getTools } from '../../services/tools'
 import { Link } from 'react-router-dom'
+import './tools.scss'
 
 export default class Tools extends Component {
   state = {
@@ -18,23 +19,32 @@ export default class Tools extends Component {
 
   render() {
     const { tools } = this.state
+    const { history } = this.props
     return (
-      <div>
-        <h2>Tools</h2>
-        <Link to='/tools/new'>Create Tool</Link>
+      <>
+        <div className="page-header">
+          <h2>TOOLS</h2>
+          <button
+            className='btn-header'
+            onClick={() => history.push('/tools/new')}
+          >CREATE TOOL
+          </button>
+        </div>
+        <hr />
         <div>
-        {tools && 
+          {tools &&
             tools.map(tool => (
               <Link
                 to={`/tools/${tool.id}`}
                 key={`tool-${tool.id}`}
+                className='list-item'
               >
                 <p>{tool.name}</p>
               </Link>
-          ))
-        }
+            ))
+          }
         </div>
-      </div>
+      </>
     )
   }
 }

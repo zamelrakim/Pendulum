@@ -8,8 +8,8 @@ export default function Header({ currUser, logout }) {
       <div className='site-nav'>
         <h1 className="site-title">PENDULUM</h1>
         <nav className='nav-links'>
-          <NavLink to='/tools' className='site-links'>Tools</NavLink> |
-          <NavLink to='/jobs' className='site-links'>Jobs</NavLink>
+          <NavLink to='/tools' className='site-links'>TOOLS</NavLink> |
+          <NavLink to='/jobs' className='site-links'>JOBS</NavLink>
         </nav>
       </div>
 

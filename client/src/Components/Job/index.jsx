@@ -39,7 +39,7 @@ export default class Job extends Component {
 
   saveTools = async () => {
     const { job } = this.state
-    const resp = await updateJob(job.id, job)
+    await updateJob(job.id, job)
     this.setState({ isEdit: false })
     this.props.history.push(`/jobs/${this.state.job.id}`)
   }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 import { getJob, updateJob } from '../../services/jobs'
 import UpdateJob from '../UpdateJob'
-import { Route } from 'react-router'
+import { Route } from 'react-router-dom'
 
 export default class Job extends Component {
   state = {
@@ -25,8 +25,6 @@ export default class Job extends Component {
   }
 
   updateTools = (tool) => {
-    // console.log(this.state.job);
-    // console.log(tool);
     let job = { ...this.state.job }
     const jobToolsIds = Array.from(job.tools, x => x.id)
     if (!jobToolsIds.includes(tool.id)) {
@@ -35,16 +33,15 @@ export default class Job extends Component {
       job.tools = job.tools.filter(currTool => currTool.id !== tool.id)
     }
     this.setState({
-      job: job,
-      isEdit: false
+      job: job
     })
-    console.log(this.state.job);
-    this.props.history.push(`/jobs/${this.state.job.id}`)
   }
 
   saveTools = async () => {
     const { job } = this.state
-    await updateJob(job.id, job)
+    const resp = await updateJob(job.id, job)
+    this.setState({ isEdit: false })
+    this.props.history.push(`/jobs/${this.state.job.id}`)
   }
 
   render() {
@@ -56,9 +53,8 @@ export default class Job extends Component {
             {this.state.isEdit ?
               <Route
                 path={`/jobs/${job.id}/edit`}
-                render={(props) => (
+                render={() => (
                   <UpdateJob
-                    {...props}
                     job={job}
                     updateTools={this.updateTools}
                     saveTools={this.saveTools}

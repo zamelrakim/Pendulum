@@ -19,8 +19,6 @@ export default class UpdateJob extends Component {
     const { tools } = this.state
     const { job, updateTools, saveTools } = this.props
     const jobToolsIds = Array.from(job.tools, x => x.id)
-    console.log('All Tools: ', tools);
-    console.log('Job Tools: ', jobToolsIds)
     return (
       <div>
         <h2>{job.company} | Add Tools</h2>

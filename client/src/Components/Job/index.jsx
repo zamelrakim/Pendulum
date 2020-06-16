@@ -88,6 +88,14 @@ export default class Job extends Component {
                     ))}
                   </div>
                 </div>
+                {job.description && (
+                  <div className="follow-section">
+                    <div className="inner-header">
+                      <h3>Description</h3>
+                    </div>
+                    <p>{job.description}</p>
+                  </div>
+                )}
                 <div className="follow-section">
                   <div className="inner-header">
                     <h3>Engineers</h3>

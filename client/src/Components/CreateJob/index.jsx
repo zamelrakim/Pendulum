@@ -3,7 +3,8 @@ import { createJob } from '../../services/jobs'
 
 export default class CreateJob extends Component {
   state = {
-    company: ""
+    company: "",
+    description: ""
   }
 
   changeJob = (e) => {
@@ -28,12 +29,20 @@ export default class CreateJob extends Component {
             this.saveJob()
           }
         }>
-          <label htmlFor='company'>COMPANY</label>
+          <label htmlFor='company'>Company</label>
           <input
             type="text"
             name="company"
             value={this.state.company}
             onChange={this.changeJob}
+          />
+          <label htmlFor='description'>Description</label>
+          <textarea
+            type="text"
+            name="description"
+            value={this.state.description}
+            onChange={this.changeJob}
+            rows='6'
           />
           <button className='submit-btn'>CREATE</button>
         </form>

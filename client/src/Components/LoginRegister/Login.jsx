@@ -17,7 +17,10 @@ export default class Login extends Component {
     const { login, history } = this.props
     return (
       <>
-        <h2>LOGIN</h2>
+        <div className="page-header">
+          <h2>LOGIN</h2>
+        </div>
+        <hr />
         <form onSubmit={(e) => {
           e.preventDefault();
           login(this.state)
@@ -27,9 +30,11 @@ export default class Login extends Component {
             password: ""
           })
         }}>
-          <label >Email<input type="text" name="email" value={email} onChange={this.loginChange} /></label>
-          <label >Password<input type="password" name="password" value={password} onChange={this.loginChange} /></label>
-          <button>LOGIN</button>
+          <label htmlFor='email'>Email</label>
+          <input type="text" name="email" value={email} onChange={this.loginChange} />
+          <label htmlFor='password'>Password</label>
+          <input type="password" name="password" value={password} onChange={this.loginChange} />
+          <button className='submit-btn'>LOGIN</button>
         </form>
         <Link to='/register'>REGISTER</Link>
       </>

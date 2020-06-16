@@ -24,3 +24,8 @@ export const employUser = async (id) => {
   const resp = await api.get(`/jobs/${id}/employ`);
   return resp;
 }
+
+export const latestJob = async () => {
+  const resp = await api.get('/jobs/latest');
+  return resp.data
+}

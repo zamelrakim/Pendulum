@@ -8,7 +8,7 @@ class JobsController < ApplicationController
   end
 
   def show
-    render json: @job, include: :tools
+    render json: @job, include: [:tools, :engineers]
   end
 
   def create
@@ -23,11 +23,11 @@ class JobsController < ApplicationController
   end
 
   def update
-    # if @curr_job.job == @job && @job.update(job_params)
     if @curr_user.job == @job
-      # UPDATE TOOL PARAMS FOR TOOL ID
-      @tool = Tool.find(params[:tool_id])
-      @job.tools << @tool
+      tools = job_params[:tools]
+      arrTools = tools.map { |tool| tool[:id] }
+      @job.tool_ids=(arrTools)
+      @job.save
       render json: @job
     else
       render json: @job.errors, status: :unprocessable_entity
@@ -39,6 +39,11 @@ class JobsController < ApplicationController
     @curr_user.save
   end
 
+  def latest
+    @job = Job.last
+    render json: @job, status: :ok
+  end
+
   private
 
   def set_job
@@ -46,6 +51,6 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:company, :tool_id)
+    params.require(:job).permit(:id, :company, :description, tools: [ :id ])
   end
 end

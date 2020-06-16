@@ -8,7 +8,7 @@ class ToolsController < ApplicationController
   end
 
   def show
-    render json: @tool
+    render json: @tool, include: :creator
   end
 
   def create
@@ -20,14 +20,25 @@ class ToolsController < ApplicationController
       @curr_user.save
       render json: @tool, status: :created
     else
-      render json: @food.errors, status: :unprocessable_entity
+      render json: @tool.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
     if @tool.creator == @curr_user
-      @tool.destroy
+      tool_users = @tool.users.select { |user| user.id != @curr_user.id }
+      if tool_users.empty? && @tool.jobs.empty?
+        @tool.destroy
+        render json: {destroyed: true}, status: :accepted
+      else
+        render json: {destroyed: false}, status: :ok
+      end
     end
+  end
+
+  def latest
+    @tool = Tool.last
+    render json: @tool, status: :ok
   end
 
   private
@@ -37,6 +48,6 @@ class ToolsController < ApplicationController
   end
 
   def tool_params
-    params.require(:tool).permit(:name)
+    params.require(:tool).permit(:name, :description)
   end
 end

@@ -1,29 +1,51 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import './Header.scss'
 
-export default function Header({ currUser }) {
+export default function Header({ currUser, logout, menu, showMenu }) {
   return (
     <header>
       <div className='site-nav'>
-        <h1 className="site-title">PENDULUM</h1>
-        <nav>
-          <NavLink to='/tools'>Tools</NavLink>
-          <NavLink to='/jobs'>jobs</NavLink>
+        <button className='menu-btn' onClick={() => showMenu(true)}>MENU</button>
+        <Link to='/'><h1 className="site-title">PENDULUM</h1></Link>
+        <nav className='nav-links'>
+          <NavLink to='/tools' className='site-links'>TOOLS</NavLink> |
+          <NavLink to='/jobs' className='site-links'>JOBS</NavLink>
         </nav>
       </div>
-
-      <div className="user-nav">
-        {currUser
-          ? 
-          <>
-            <Link to={`/users/${currUser.id}`}>{currUser}</Link> |
-            {/* ADD LOGOUT */}
-          </>
-          :
-          <Link to='/login'>Login/Register</Link>
-        }
+      <div
+        className="overlay"
+        style={menu ? { display: "block" } : { display: "none" }}
+        onClick={() => showMenu(false)}
+      >
+        <div className="user-nav">
+          {currUser
+            ? 
+            <>
+              <Link
+                to={`/users/${currUser.id}`}
+                onClick={() => {
+                  showMenu(false)
+                }}
+              >
+                {currUser.username}
+              </Link>
+              <Link
+                to='/'
+                onClick={() => {
+                  logout()
+                  showMenu(false)
+                }}
+              >
+                Logout
+              </Link>
+            </>
+            :
+            <Link to='/login'>Login/Register</Link>
+          }
+          <button onClick={() => showMenu(false)}>CLOSE</button>
+        </div>
       </div>
-      
     </header>
   )
 }

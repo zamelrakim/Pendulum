@@ -1,49 +1,48 @@
 import React, { Component } from 'react'
-import { getJobs } from '../../services/jobs'
+import { getTools } from '../../services/tools'
 import { Link } from 'react-router-dom'
 
-export default class Jobs extends Component {
+export default class Tools extends Component {
   state = {
-    jobs: []
+    tools: []
   }
 
   componentDidMount() {
-    this.reqJobs()
+    this.reqTools()
   }
 
-  reqJobs = async () => {
-    const jobs = await getJobs()
-    this.setState({ jobs })
+  reqTools = async () => {
+    const tools = await getTools()
+    this.setState({ tools })
   }
 
   render() {
-    const { jobs } = this.state
+    const { tools } = this.state
     const { history, currUser } = this.props
     return (
       <>
         <div className="page-header">
-          <h2>JOBS</h2>
+          <h2>TOOLS</h2>
           {currUser && (
             <button
               className='btn-header'
-              onClick={() => history.push('/jobs/new')}
-            >NEW JOB
+              onClick={() => history.push('/tools/new')}
+            >CREATE TOOL
             </button>
           )}
         </div>
         <hr />
         <div className='list-links'>
-          {
-            jobs.map(job => (
+          {tools &&
+            tools.map(tool => (
               <Link
-                to={`/jobs/${job.id}`}
-                key={`job-${job.id}`}
+                to={`/tools/${tool.id}`}
+                key={`tool-${tool.id}`}
                 className='list-item'
               >
-                <p>{job.company}</p>
+                <p>{tool.name}</p>
               </Link>
             ))
-
           }
         </div>
       </>

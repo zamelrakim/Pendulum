@@ -61,6 +61,16 @@ export default class Tool extends Component {
               )}
             </div>
             <hr />
+            <div className="lead-section">
+              <div className="inner-header">
+                <h3>DESCRIPTION</h3>
+              </div>
+              {tool.description ?
+                <p>{tool.description}</p>
+                :
+                <p>This Tool Has No Description At The Moment</p>
+              }
+            </div>
           </>
         )}
       </div>

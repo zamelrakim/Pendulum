@@ -3,7 +3,8 @@ import { createTool } from '../../services/tools'
 
 export default class CreateTool extends Component {
   state = {
-    name: ""
+    name: "",
+    description: ""
   }
 
   changeTool = (e) => {
@@ -34,7 +35,15 @@ export default class CreateTool extends Component {
               name="name"
               value={this.state.name}
               onChange={this.changeTool}
-            />
+          />
+          <label htmlFor='description'>DESCRIPTION</label>
+          <textarea
+            type="text"
+            name="description"
+            value={this.state.description}
+            onChange={this.changeTool}
+            rows='6'
+          />
           <button className='submit-btn'>CREATE</button>
         </form>
       </>

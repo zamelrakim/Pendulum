@@ -18,16 +18,18 @@ export default class Jobs extends Component {
 
   render() {
     const { jobs } = this.state
-    const { history } = this.props
+    const { history, currUser } = this.props
     return (
       <>
         <div className="page-header">
           <h2>JOBS</h2>
-          <button
-            className='btn-header'
-            onClick={() => history.push('/jobs/new')}
-          > NEW JOB
-          </button>
+          {currUser && (
+            <button
+              className='btn-header'
+              onClick={() => history.push('/jobs/new')}
+            >NEW JOB
+            </button>
+          )}
         </div>
         <hr />
         <div className='list-links'>

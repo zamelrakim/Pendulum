@@ -19,16 +19,18 @@ export default class Tools extends Component {
 
   render() {
     const { tools } = this.state
-    const { history } = this.props
+    const { history, currUser } = this.props
     return (
       <>
         <div className="page-header">
           <h2>TOOLS</h2>
-          <button
-            className='btn-header'
-            onClick={() => history.push('/tools/new')}
-          >CREATE TOOL
-          </button>
+          {currUser && (
+            <button
+              className='btn-header'
+              onClick={() => history.push('/tools/new')}
+            >CREATE TOOL
+            </button>
+          )}
         </div>
         <hr />
         <div>

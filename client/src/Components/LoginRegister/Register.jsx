@@ -17,7 +17,10 @@ export default class Register extends Component {
     const { signUp, history } = this.props
     return (
       <>
-        <h2>REGISTER</h2>
+        <div className="page-header">
+          <h2>REGISTER</h2>
+        </div>
+        <hr />
         <form onSubmit={(e) => {
           e.preventDefault();
           signUp(this.state)
@@ -30,32 +33,32 @@ export default class Register extends Component {
         }}>
           <label>
             Username
-            <input
-              type="text"
-              name="username"
-              value={username}
-              onChange={this.registerChange}
-            />
           </label>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={this.registerChange}
+          />
           <label>
             Email
-            <input
-              type="text"
-              name="email"
-              value={email}
-              onChange={this.registerChange}
-            />
           </label>
+          <input
+            type="text"
+            name="email"
+            value={email}
+            onChange={this.registerChange}
+          />
           <label>
             Password
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.registerChange}
-            />
           </label>
-          <button>REGISTER</button>
+          <input
+            type="password"
+            name="password"
+            value={password}
+            onChange={this.registerChange}
+          />
+          <button className='submit-btn'>REGISTER</button>
         </form>
       </>
     )

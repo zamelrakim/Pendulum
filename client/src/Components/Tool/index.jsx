@@ -63,7 +63,7 @@ export default class Tool extends Component {
             <hr />
             <div className="lead-section">
               <div className="inner-header">
-                <h3>DESCRIPTION</h3>
+                <h3>Description</h3>
               </div>
               {tool.description ?
                 <p>{tool.description}</p>

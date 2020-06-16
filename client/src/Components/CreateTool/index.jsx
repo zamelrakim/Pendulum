@@ -29,14 +29,14 @@ export default class CreateTool extends Component {
             this.saveTool()
           }
         }>
-          <label htmlFor='name'>NAME</label>
+          <label htmlFor='name'>Name</label>
           <input
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.changeTool}
           />
-          <label htmlFor='description'>DESCRIPTION</label>
+          <label htmlFor='description'>Description</label>
           <textarea
             type="text"
             name="description"

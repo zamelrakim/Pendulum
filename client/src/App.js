@@ -18,7 +18,8 @@ export default class App extends Component {
   state = {
     currUser: null,
     job: null,
-    tool: null
+    tool: null,
+    menu: false
   }
 
   componentDidMount() {
@@ -46,15 +47,20 @@ export default class App extends Component {
     removeToken()
   }
 
-  setJob = async (id) => {
-    const job = await getJob(id)
-    this.setState({ job })
+  // setJob = async (id) => {
+  //   const job = await getJob(id)
+  //   this.setState({ job })
+  // }
+
+  showMenu = (value) => {
+    const menu = value ? true : false
+    this.setState({ menu })
   }
 
   render() {
     return (
       <>
-        <Header currUser={this.state.currUser} logout={this.logoutUser} />
+        <Header menu={this.state.menu} currUser={this.state.currUser} logout={this.logoutUser} showMenu={this.showMenu} />
         <div className='main'>
           <Switch>
             <Route path='/users/:id' render={(props) => {

@@ -19,3 +19,55 @@ header {
     }
   }
 }
+
+// LEARNED CODE BELOW FROM w3schools
+.overlay {
+  height: 100%;
+  width: 100%;
+  // display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  // background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0, 0.9);
+}
+
+.user-nav {
+  position: relative;
+  top: 25%;
+  // width: 100%;
+  text-align: center;
+  // margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  a {
+    font-size: 32px;
+    margin: 5px 0;
+  }
+  button {
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    border: none;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    padding: 10px 20px;
+  }
+}
+
+.menu-btn {
+  position: absolute;
+  right: 0;
+  margin-top: 30px;
+  margin-right: 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  padding: 10px 20px;
+}

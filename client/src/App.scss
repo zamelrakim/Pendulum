@@ -45,6 +45,21 @@ a {
   border-bottom: 1px solid #e1e4e8;
 }
 
+@media (min-width: 600px) and (max-width: 1280px) {
+  .list-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    .list-item {
+      padding: 10px;
+      width: 150px;
+      border: 1px solid #e1e4e8;
+      margin: 5px;
+      text-align: center
+    }
+  }
+}
+
 .btn-edit {
   background-color: black;
   color: white;
@@ -105,4 +120,12 @@ form {
     font-weight: bold;
     padding: 10px 20px;
   }
+}
+
+@media (min-width: 1281px) {
+  
+}
+
+@media (min-width: 600px) and (max-width: 1280px) {
+  
 }

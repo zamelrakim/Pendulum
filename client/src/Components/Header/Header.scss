@@ -18,6 +18,11 @@ header {
       }
     }
   }
+  @media (min-width: 600px) {
+    .site-nav {
+      flex-direction: row;
+    }
+  }
 }
 
 // LEARNED CODE BELOW FROM w3schools
@@ -36,9 +41,7 @@ header {
 .user-nav {
   position: relative;
   top: 25%;
-  // width: 100%;
   text-align: center;
-  // margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,6 +61,22 @@ header {
   }
 }
 
+@media (min-width: 600px) and (max-width: 1280px) {
+  .user-nav {
+    a {
+      font-size: 55px;
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+  .user-nav {
+    a {
+      font-size: 72px;
+    }
+  }
+}
+
 .menu-btn {
   position: absolute;
   right: 0;
@@ -70,4 +89,10 @@ header {
   border-radius: 4px;
   font-weight: bold;
   padding: 10px 20px;
+}
+
+@media (min-width: 600px) {
+  .menu-btn {
+    margin-top: 0;
+  }
 }

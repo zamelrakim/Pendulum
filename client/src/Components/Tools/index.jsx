@@ -32,7 +32,7 @@ export default class Tools extends Component {
           )}
         </div>
         <hr />
-        <div>
+        <div className='list-links'>
           {tools &&
             tools.map(tool => (
               <Link

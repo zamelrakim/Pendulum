@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { getTools } from '../../services/tools'
 import { Link } from 'react-router-dom'
-import './tools.scss'
 
 export default class Tools extends Component {
   state = {

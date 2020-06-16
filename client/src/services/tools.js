@@ -19,3 +19,8 @@ export const deleteTool = async (id) => {
   const resp = await api.delete(`/tools/${id}`);
   return resp.data.destroyed
 }
+
+export const latestTool = async () => {
+  const resp = await api.get('/tools/latest');
+  return resp.data
+}

@@ -39,6 +39,11 @@ class JobsController < ApplicationController
     @curr_user.save
   end
 
+  def latest
+    @job = Job.last
+    render json: @job, status: :ok
+  end
+
   private
 
   def set_job

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './Components/Header'
 import { Switch, Route } from 'react-router-dom'
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth.js'
-import { getJob } from './services/jobs'
 import Profile from './Components/Profile'
 import Jobs from './Components/Jobs'
 import Job from './Components/Job'
@@ -12,6 +11,7 @@ import Tool from './Components/Tool'
 import CreateTool from './Components/CreateTool'
 import Login from './Components/LoginRegister/Login'
 import Register from './Components/LoginRegister/Register'
+import Home from './Components/Home'
 import './App.scss';
 
 export default class App extends Component {
@@ -65,15 +65,16 @@ export default class App extends Component {
               const toolId = props.match.params.id
               return <Tool {...props} toolId={toolId} currUser={this.state.currUser} />
             }} />
-            <Route path='/tools' render={(props) => <Tools {...props} currUser={this.props.currUser} />} />
-            <Route exact path='/jobs/new' render={(props) => <CreateJob {...props} />} />
+            <Route path='/tools' render={(props) => <Tools {...props} currUser={this.state.currUser} />} />
+            <Route exact path='/jobs/new' render={(props) => <CreateJob {...props} verifyUser={this.verifyUser} />} />
             <Route path='/jobs/:id' render={(props) => {
               const jobId = props.match.params.id
               return <Job {...props} jobId={jobId} currUser={this.state.currUser} />
             }} />
-            <Route exact path='/jobs' render={(props) => <Jobs {...props} currUser={this.props.currUser} />} />
+            <Route exact path='/jobs' render={(props) => <Jobs {...props} currUser={this.state.currUser} />} />
             <Route path='/login' render={(props) => <Login {...props} login={this.loginUser} />}/>
-            <Route path='/register' render={(props) => <Register {...props} signUp={this.registerUser} />}/>
+            <Route path='/register' render={(props) => <Register {...props} signUp={this.registerUser} />} />
+            <Route exact path='/' render={() => <Home />} />
           </Switch>
         </div>
       </>

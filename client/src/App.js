@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Header from './Components/Header'
 import { Switch, Route } from 'react-router-dom'
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth.js'
-import { getJob } from './services/jobs'
 import Profile from './Components/Profile'
 import Jobs from './Components/Jobs'
 import Job from './Components/Job'
@@ -12,6 +11,7 @@ import Tool from './Components/Tool'
 import CreateTool from './Components/CreateTool'
 import Login from './Components/LoginRegister/Login'
 import Register from './Components/LoginRegister/Register'
+import Home from './Components/Home'
 import './App.scss';
 
 export default class App extends Component {
@@ -73,7 +73,8 @@ export default class App extends Component {
             }} />
             <Route exact path='/jobs' render={(props) => <Jobs {...props} currUser={this.props.currUser} />} />
             <Route path='/login' render={(props) => <Login {...props} login={this.loginUser} />}/>
-            <Route path='/register' render={(props) => <Register {...props} signUp={this.registerUser} />}/>
+            <Route path='/register' render={(props) => <Register {...props} signUp={this.registerUser} />} />
+            <Route exact path='/' render={() => <Home />} />
           </Switch>
         </div>
       </>

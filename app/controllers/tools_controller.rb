@@ -36,6 +36,11 @@ class ToolsController < ApplicationController
     end
   end
 
+  def latest
+    @tool = Tool.last
+    render json: @tool, status: :ok
+  end
+
   private
 
   def set_tool

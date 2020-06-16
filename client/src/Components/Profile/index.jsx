@@ -24,24 +24,29 @@ export default class Profile extends Component {
       <div>
         {user && (
           <>
-            <div className='profile-info'>
+            <div className='page-header'>
               <h2>{user.username}</h2>
               {user.job && (
-                <h3>
+                <h2>
                   Works @ <Link to={`/jobs/${user.job_id}`}>{user.job.company}</Link>
-                </h3>
+                </h2>
               )}
             </div>
-            <div className="profile-tools">
+            <hr />
+            <div className="lead-section">
               {user.tools.length !== 0
                 ? 
                 <>
-                  <h3>Tools</h3>
-                  {user.tools.map(tool => (
-                    <div className="profile-tool" key={`tool-${tool.id}`}>
-                    <Link to={`/tools/${tool.id}`}>{tool.name}</Link>
-                    </div>
-                  ))}
+                  <div className='inner-header'>
+                    <h3>TOOLS</h3>
+                  </div>
+                  <div className="inner-list">
+                    {user.tools.map(tool => (
+                      <div className="profile-tool" key={`tool-${tool.id}`}>
+                        <Link to={`/tools/${tool.id}`}>{tool.name}</Link>
+                      </div>
+                    ))}
+                  </div>
                 </>
                 :
                 <>

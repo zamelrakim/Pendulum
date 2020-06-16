@@ -1,14 +1,15 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import './Header.scss'
 
 export default function Header({ currUser, logout }) {
   return (
     <header>
       <div className='site-nav'>
         <h1 className="site-title">PENDULUM</h1>
-        <nav>
-          <NavLink to='/tools'>Tools</NavLink>
-          <NavLink to='/jobs'>Jobs</NavLink>
+        <nav className='nav-links'>
+          <NavLink to='/tools' className='site-links'>TOOLS</NavLink> |
+          <NavLink to='/jobs' className='site-links'>JOBS</NavLink>
         </nav>
       </div>
 

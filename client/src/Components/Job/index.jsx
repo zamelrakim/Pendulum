@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { getJob, updateJob } from '../../services/jobs'
 import UpdateJob from '../UpdateJob'
 import { Route } from 'react-router-dom'
+import './Job.scss'
 
 export default class Job extends Component {
   state = {
@@ -64,25 +65,40 @@ export default class Job extends Component {
               />
               :
               <>
-                <h2>{job.company}</h2>
-                <h3>Stack</h3>
-                {(currUser && currUser.job_id === job.id) &&
-                  <button onClick={() => this.editJob()}>Edit</button>
-                }
-                <div className="job-stack">
-                  {job.tools.map(tool => (
-                    <React.Fragment key={`tool-${tool.id}`}>
-                     <Link to={`/tools/${tool.id}`}>{tool.name}</Link>
-                    </React.Fragment>
-                  ))}
+                <div className="page-header">
+                  <h2>{job.company}</h2>
                 </div>
-                <h3>Engineers</h3>
-                <div className="job-engineers">
-                  {job.engineers.map(engineer => (
-                    <React.Fragment key={`engineer-${engineer.id}`}>
-                      <Link to={`/users/${engineer.id}`}>{engineer.username}</Link>
-                    </React.Fragment>
-                  ))}
+                <hr />
+                <div className="lead-section">
+                  <div className="inner-header">
+                    <h3>Stack</h3>
+                    {(currUser && currUser.job_id === job.id) &&
+                      <button
+                        className='btn-edit'
+                        onClick={() => this.editJob()}
+                      >Edit
+                      </button>
+                    }
+                  </div>
+                  <div className="inner-list">
+                    {job.tools.map(tool => (
+                      <React.Fragment key={`tool-${tool.id}`}>
+                        <Link to={`/tools/${tool.id}`}>{tool.name}</Link>
+                      </React.Fragment>
+                    ))}
+                  </div>
+                </div>
+                <div className="follow-section">
+                  <div className="inner-header">
+                    <h3>Engineers</h3>
+                  </div>
+                  <div className='inner-list'>
+                    {job.engineers.map(engineer => (
+                      <React.Fragment key={`engineer-${engineer.id}`}>
+                        <Link to={`/users/${engineer.id}`}>{engineer.username}</Link>
+                      </React.Fragment>
+                    ))}
+                  </div>
                 </div>
               </>
             }

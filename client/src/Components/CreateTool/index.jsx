@@ -28,7 +28,7 @@ export default class CreateTool extends Component {
             this.saveTool()
           }
         }>
-          <label htmlFor='name'>Name</label>
+          <label htmlFor='name'>NAME</label>
           <input
               type="text"
               name="name"

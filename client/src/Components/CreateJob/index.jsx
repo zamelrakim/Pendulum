@@ -19,22 +19,23 @@ export default class CreateJob extends Component {
   render() {
     return (
       <>
-        <h2>CREATE JOB</h2>
+        <div className="page-header">
+          <h2>CREATE JOB</h2>
+        </div>
+        <hr />
         <form onSubmit={(e) => {
             e.preventDefault();
             this.saveJob()
           }
         }>
-          <label>
-            Name
-            <input
-              type="text"
-              name="company"
-              value={this.state.company}
-              onChange={this.changeJob}
-            />
-          </label>
-          <button>CREATE</button>
+          <label htmlFor='company'>COMPANY</label>
+          <input
+            type="text"
+            name="company"
+            value={this.state.company}
+            onChange={this.changeJob}
+          />
+          <button className='submit-btn'>CREATE</button>
         </form>
       </>
     )

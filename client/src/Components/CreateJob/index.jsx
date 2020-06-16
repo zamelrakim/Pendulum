@@ -14,6 +14,7 @@ export default class CreateJob extends Component {
 
   saveJob = async () => {
     const job = await createJob(this.state)
+    this.props.verifyUser()
     this.props.history.push(`/jobs/${job.id}`)
   }
   

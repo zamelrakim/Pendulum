@@ -31,7 +31,7 @@ export default function Header({ currUser, logout, menu, showMenu }) {
                 {currUser.username}
               </Link>
               <Link
-                to={location => location}
+                to='/'
                 onClick={() => {
                   logout()
                   showMenu(false)

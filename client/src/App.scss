@@ -45,7 +45,7 @@ a {
   border-bottom: 1px solid #e1e4e8;
 }
 
-@media (min-width: 600px) and (max-width: 1280px) {
+@media (min-width: 600px) {
   .list-links {
     display: flex;
     flex-wrap: wrap;
@@ -120,12 +120,4 @@ form {
     font-weight: bold;
     padding: 10px 20px;
   }
-}
-
-@media (min-width: 1281px) {
-  
-}
-
-@media (min-width: 600px) and (max-width: 1280px) {
-  
 }

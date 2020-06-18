@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { getJob, updateJob } from '../../services/jobs'
 import UpdateJob from '../UpdateJob'
 import { Route } from 'react-router-dom'
-import './Job.scss'
 
 export default class Job extends Component {
   state = {

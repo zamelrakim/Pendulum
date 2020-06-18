@@ -40,10 +40,10 @@ export default class Profile extends Component {
                   <div className='inner-header'>
                     <h3>TOOLS</h3>
                   </div>
-                  <div className="inner-list">
+                  <div className="list-links">
                     {user.tools.map(tool => (
                       <div className="profile-tool" key={`tool-${tool.id}`}>
-                        <Link to={`/tools/${tool.id}`}>{tool.name}</Link>
+                        <Link className='list-items' to={`/tools/${tool.id}`}>{tool.name}</Link>
                       </div>
                     ))}
                   </div>

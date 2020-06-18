@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { getUser } from '../../services/users'
 import { Link } from 'react-router-dom'
+import ProfileTools from '../ProfileTools'
 
 export default class Profile extends Component {
   state = {
@@ -36,18 +37,7 @@ export default class Profile extends Component {
             <div className="lead-section">
               {user.tools.length !== 0
                 ? 
-                <>
-                  <div className='inner-header'>
-                    <h3>TOOLS</h3>
-                  </div>
-                  <div className="list-links">
-                    {user.tools.map(tool => (
-                      <div className="profile-tool" key={`tool-${tool.id}`}>
-                        <Link className='list-items' to={`/tools/${tool.id}`}>{tool.name}</Link>
-                      </div>
-                    ))}
-                  </div>
-                </>
+                <ProfileTools tools={user.tools} />
                 :
                 <>
                   {isCurrUser
